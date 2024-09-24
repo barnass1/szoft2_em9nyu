@@ -161,7 +161,7 @@ namespace Rendeles_Forms_EM9NYU
                                where k.SzuloKategoriaId == kategoria.KategoriaId
                                select k;
 
-            foreach (var gyerekKategoria in alkategoriak)
+            foreach (var gyerekKategoria in alkategoriak.ToList())
             {
                 DeleteKategoriaAndChildren(gyerekKategoria);
             }

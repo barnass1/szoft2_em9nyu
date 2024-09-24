@@ -33,22 +33,28 @@
             // 
             // button1
             // 
-            button1.Location = new Point(354, 216);
+            button1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            button1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            button1.Location = new Point(500, 450);
+            button1.Margin = new Padding(6);
             button1.Name = "button1";
-            button1.Size = new Size(75, 23);
+            button1.Size = new Size(500, 50);
             button1.TabIndex = 0;
-            button1.Text = "button1";
+            button1.Text = "Termékkategóriák kezelése";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            ClientSize = new Size(1474, 929);
             Controls.Add(button1);
+            Margin = new Padding(6);
+            MaximizeBox = false;
             Name = "Form1";
-            Text = "Form1";
+            Text = "Főoldal";
             ResumeLayout(false);
         }
 

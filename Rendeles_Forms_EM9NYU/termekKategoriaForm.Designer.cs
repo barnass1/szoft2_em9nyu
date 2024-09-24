@@ -41,32 +41,36 @@
             // 
             // treeViewKategoriak
             // 
-            treeViewKategoriak.Location = new Point(12, 12);
+            treeViewKategoriak.Location = new Point(22, 26);
+            treeViewKategoriak.Margin = new Padding(6);
             treeViewKategoriak.Name = "treeViewKategoriak";
-            treeViewKategoriak.Size = new Size(336, 426);
+            treeViewKategoriak.Size = new Size(621, 904);
             treeViewKategoriak.TabIndex = 0;
             treeViewKategoriak.AfterSelect += treeViewKategoriak_AfterSelect;
             // 
             // txtLeiras
             // 
-            txtLeiras.Location = new Point(415, 56);
+            txtLeiras.Location = new Point(771, 119);
+            txtLeiras.Margin = new Padding(6);
             txtLeiras.Multiline = true;
             txtLeiras.Name = "txtLeiras";
-            txtLeiras.Size = new Size(373, 353);
+            txtLeiras.Size = new Size(689, 749);
             txtLeiras.TabIndex = 1;
             // 
             // txtNev
             // 
-            txtNev.Location = new Point(415, 12);
+            txtNev.Location = new Point(771, 26);
+            txtNev.Margin = new Padding(6);
             txtNev.Name = "txtNev";
-            txtNev.Size = new Size(373, 23);
+            txtNev.Size = new Size(689, 39);
             txtNev.TabIndex = 2;
             // 
             // buttonUjtestver
             // 
-            buttonUjtestver.Location = new Point(354, 415);
+            buttonUjtestver.Location = new Point(657, 885);
+            buttonUjtestver.Margin = new Padding(6);
             buttonUjtestver.Name = "buttonUjtestver";
-            buttonUjtestver.Size = new Size(133, 23);
+            buttonUjtestver.Size = new Size(247, 49);
             buttonUjtestver.TabIndex = 3;
             buttonUjtestver.Text = "Új testvér kategória";
             buttonUjtestver.UseVisualStyleBackColor = true;
@@ -74,9 +78,10 @@
             // 
             // buttonUjgyerek
             // 
-            buttonUjgyerek.Location = new Point(493, 415);
+            buttonUjgyerek.Location = new Point(916, 885);
+            buttonUjgyerek.Margin = new Padding(6);
             buttonUjgyerek.Name = "buttonUjgyerek";
-            buttonUjgyerek.Size = new Size(133, 23);
+            buttonUjgyerek.Size = new Size(247, 49);
             buttonUjgyerek.TabIndex = 4;
             buttonUjgyerek.Text = "Új gyerek kategória";
             buttonUjgyerek.UseVisualStyleBackColor = true;
@@ -84,9 +89,10 @@
             // 
             // buttonMentes
             // 
-            buttonMentes.Location = new Point(632, 415);
+            buttonMentes.Location = new Point(1174, 885);
+            buttonMentes.Margin = new Padding(6);
             buttonMentes.Name = "buttonMentes";
-            buttonMentes.Size = new Size(75, 23);
+            buttonMentes.Size = new Size(139, 49);
             buttonMentes.TabIndex = 5;
             buttonMentes.Text = "Mentés";
             buttonMentes.UseVisualStyleBackColor = true;
@@ -94,9 +100,10 @@
             // 
             // buttonTorles
             // 
-            buttonTorles.Location = new Point(713, 415);
+            buttonTorles.Location = new Point(1324, 885);
+            buttonTorles.Margin = new Padding(6);
             buttonTorles.Name = "buttonTorles";
-            buttonTorles.Size = new Size(75, 23);
+            buttonTorles.Size = new Size(139, 49);
             buttonTorles.TabIndex = 6;
             buttonTorles.Text = "Törlés";
             buttonTorles.UseVisualStyleBackColor = true;
@@ -105,26 +112,29 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(378, 15);
+            label1.Location = new Point(702, 32);
+            label1.Margin = new Padding(6, 0, 6, 0);
             label1.Name = "label1";
-            label1.Size = new Size(31, 15);
+            label1.Size = new Size(62, 32);
             label1.TabIndex = 7;
             label1.Text = "Név:";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(371, 228);
+            label2.Location = new Point(689, 486);
+            label2.Margin = new Padding(6, 0, 6, 0);
             label2.Name = "label2";
-            label2.Size = new Size(40, 15);
+            label2.Size = new Size(79, 32);
             label2.TabIndex = 8;
             label2.Text = "Leírás:";
             // 
             // termekKategoriaForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            ClientSize = new Size(1486, 960);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(buttonTorles);
@@ -134,8 +144,13 @@
             Controls.Add(txtNev);
             Controls.Add(txtLeiras);
             Controls.Add(treeViewKategoriak);
+            Margin = new Padding(6);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "termekKategoriaForm";
-            Text = "termekKategoriaForm";
+            ShowInTaskbar = false;
+            Text = "Termékkategóriák kezelése";
+            TopMost = true;
             ResumeLayout(false);
             PerformLayout();
         }
