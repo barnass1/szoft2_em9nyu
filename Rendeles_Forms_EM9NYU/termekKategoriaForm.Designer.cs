@@ -30,6 +30,12 @@
         {
             components = new System.ComponentModel.Container();
             treeViewKategoriak = new TreeView();
+            contextMenuStripKategoria = new ContextMenuStrip(components);
+            toolStripMenuItem1 = new ToolStripMenuItem();
+            toolStripMenuItem2 = new ToolStripMenuItem();
+            toolStripMenuItem3 = new ToolStripMenuItem();
+            toolStripMenuItem4 = new ToolStripMenuItem();
+            toolStripMenuItem5 = new ToolStripMenuItem();
             txtLeiras = new TextBox();
             txtNev = new TextBox();
             buttonUjtestver = new Button();
@@ -38,12 +44,6 @@
             buttonTorles = new Button();
             label1 = new Label();
             label2 = new Label();
-            contextMenuStripKategoria = new ContextMenuStrip(components);
-            toolStripMenuItem1 = new ToolStripMenuItem();
-            toolStripMenuItem2 = new ToolStripMenuItem();
-            toolStripMenuItem3 = new ToolStripMenuItem();
-            toolStripMenuItem4 = new ToolStripMenuItem();
-            toolStripMenuItem5 = new ToolStripMenuItem();
             contextMenuStripKategoria.SuspendLayout();
             SuspendLayout();
             // 
@@ -55,7 +55,49 @@
             treeViewKategoriak.Name = "treeViewKategoriak";
             treeViewKategoriak.Size = new Size(336, 426);
             treeViewKategoriak.TabIndex = 0;
+            treeViewKategoriak.AfterLabelEdit += treeViewKategoriak_AfterLabelEdit;
             treeViewKategoriak.AfterSelect += treeViewKategoriak_AfterSelect;
+            // 
+            // contextMenuStripKategoria
+            // 
+            contextMenuStripKategoria.Items.AddRange(new ToolStripItem[] { toolStripMenuItem1, toolStripMenuItem2, toolStripMenuItem3, toolStripMenuItem4, toolStripMenuItem5 });
+            contextMenuStripKategoria.Name = "contextMenuStripKategoria";
+            contextMenuStripKategoria.Size = new Size(149, 114);
+            // 
+            // toolStripMenuItem1
+            // 
+            toolStripMenuItem1.Name = "toolStripMenuItem1";
+            toolStripMenuItem1.Size = new Size(148, 22);
+            toolStripMenuItem1.Text = "Átnevezés";
+            toolStripMenuItem1.Click += toolStripMenuItem1_Click;
+            // 
+            // toolStripMenuItem2
+            // 
+            toolStripMenuItem2.Name = "toolStripMenuItem2";
+            toolStripMenuItem2.Size = new Size(148, 22);
+            toolStripMenuItem2.Text = "Új főkategória";
+            toolStripMenuItem2.Click += toolStripMenuItem2_Click;
+            // 
+            // toolStripMenuItem3
+            // 
+            toolStripMenuItem3.Name = "toolStripMenuItem3";
+            toolStripMenuItem3.Size = new Size(148, 22);
+            toolStripMenuItem3.Text = "Új alkategória";
+            toolStripMenuItem3.Click += toolStripMenuItem3_Click;
+            // 
+            // toolStripMenuItem4
+            // 
+            toolStripMenuItem4.Name = "toolStripMenuItem4";
+            toolStripMenuItem4.Size = new Size(148, 22);
+            toolStripMenuItem4.Text = "Törlés";
+            toolStripMenuItem4.Click += toolStripMenuItem4_Click;
+            // 
+            // toolStripMenuItem5
+            // 
+            toolStripMenuItem5.Name = "toolStripMenuItem5";
+            toolStripMenuItem5.Size = new Size(148, 22);
+            toolStripMenuItem5.Text = "Frissítés";
+            toolStripMenuItem5.Click += toolStripMenuItem5_Click;
             // 
             // txtLeiras
             // 
@@ -130,43 +172,6 @@
             label2.TabIndex = 8;
             label2.Text = "Leírás:";
             // 
-            // contextMenuStripKategoria
-            // 
-            contextMenuStripKategoria.Items.AddRange(new ToolStripItem[] { toolStripMenuItem1, toolStripMenuItem2, toolStripMenuItem3, toolStripMenuItem4, toolStripMenuItem5 });
-            contextMenuStripKategoria.Name = "contextMenuStripKategoria";
-            contextMenuStripKategoria.Size = new Size(181, 136);
-            // 
-            // toolStripMenuItem1
-            // 
-            toolStripMenuItem1.Name = "toolStripMenuItem1";
-            toolStripMenuItem1.Size = new Size(180, 22);
-            toolStripMenuItem1.Text = "Átnevezés";
-            toolStripMenuItem1.Click += toolStripMenuItem1_Click;
-            // 
-            // toolStripMenuItem2
-            // 
-            toolStripMenuItem2.Name = "toolStripMenuItem2";
-            toolStripMenuItem2.Size = new Size(148, 22);
-            toolStripMenuItem2.Text = "Új főkategória";
-            // 
-            // toolStripMenuItem3
-            // 
-            toolStripMenuItem3.Name = "toolStripMenuItem3";
-            toolStripMenuItem3.Size = new Size(148, 22);
-            toolStripMenuItem3.Text = "Új alkategória";
-            // 
-            // toolStripMenuItem4
-            // 
-            toolStripMenuItem4.Name = "toolStripMenuItem4";
-            toolStripMenuItem4.Size = new Size(148, 22);
-            toolStripMenuItem4.Text = "Törlés";
-            // 
-            // toolStripMenuItem5
-            // 
-            toolStripMenuItem5.Name = "toolStripMenuItem5";
-            toolStripMenuItem5.Size = new Size(148, 22);
-            toolStripMenuItem5.Text = "Frissítés";
-            // 
             // termekKategoriaForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -187,7 +192,7 @@
             Name = "termekKategoriaForm";
             ShowInTaskbar = false;
             Text = "Termékkategóriák kezelése";
-            TopMost = true;
+            Load += termekKategoriaForm_Load;
             contextMenuStripKategoria.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
