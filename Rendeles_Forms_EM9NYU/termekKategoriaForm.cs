@@ -168,5 +168,10 @@ namespace Rendeles_Forms_EM9NYU
 
             _context.TermekKategoria.Remove(kategoria);
         }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
