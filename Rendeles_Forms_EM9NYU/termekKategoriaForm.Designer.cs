@@ -36,6 +36,7 @@
             toolStripMenuItem3 = new ToolStripMenuItem();
             toolStripMenuItem4 = new ToolStripMenuItem();
             toolStripMenuItem5 = new ToolStripMenuItem();
+            mentésXMLbeToolStripMenuItem = new ToolStripMenuItem();
             txtLeiras = new TextBox();
             txtNev = new TextBox();
             buttonUjtestver = new Button();
@@ -49,6 +50,7 @@
             // 
             // treeViewKategoriak
             // 
+            treeViewKategoriak.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             treeViewKategoriak.ContextMenuStrip = contextMenuStripKategoria;
             treeViewKategoriak.LabelEdit = true;
             treeViewKategoriak.Location = new Point(12, 12);
@@ -60,47 +62,55 @@
             // 
             // contextMenuStripKategoria
             // 
-            contextMenuStripKategoria.Items.AddRange(new ToolStripItem[] { toolStripMenuItem1, toolStripMenuItem2, toolStripMenuItem3, toolStripMenuItem4, toolStripMenuItem5 });
+            contextMenuStripKategoria.Items.AddRange(new ToolStripItem[] { toolStripMenuItem1, toolStripMenuItem2, toolStripMenuItem3, toolStripMenuItem4, toolStripMenuItem5, mentésXMLbeToolStripMenuItem });
             contextMenuStripKategoria.Name = "contextMenuStripKategoria";
-            contextMenuStripKategoria.Size = new Size(149, 114);
+            contextMenuStripKategoria.Size = new Size(159, 136);
             // 
             // toolStripMenuItem1
             // 
             toolStripMenuItem1.Name = "toolStripMenuItem1";
-            toolStripMenuItem1.Size = new Size(148, 22);
+            toolStripMenuItem1.Size = new Size(158, 22);
             toolStripMenuItem1.Text = "Átnevezés";
             toolStripMenuItem1.Click += toolStripMenuItem1_Click;
             // 
             // toolStripMenuItem2
             // 
             toolStripMenuItem2.Name = "toolStripMenuItem2";
-            toolStripMenuItem2.Size = new Size(148, 22);
+            toolStripMenuItem2.Size = new Size(158, 22);
             toolStripMenuItem2.Text = "Új főkategória";
             toolStripMenuItem2.Click += toolStripMenuItem2_Click;
             // 
             // toolStripMenuItem3
             // 
             toolStripMenuItem3.Name = "toolStripMenuItem3";
-            toolStripMenuItem3.Size = new Size(148, 22);
+            toolStripMenuItem3.Size = new Size(158, 22);
             toolStripMenuItem3.Text = "Új alkategória";
             toolStripMenuItem3.Click += toolStripMenuItem3_Click;
             // 
             // toolStripMenuItem4
             // 
             toolStripMenuItem4.Name = "toolStripMenuItem4";
-            toolStripMenuItem4.Size = new Size(148, 22);
+            toolStripMenuItem4.Size = new Size(158, 22);
             toolStripMenuItem4.Text = "Törlés";
             toolStripMenuItem4.Click += toolStripMenuItem4_Click;
             // 
             // toolStripMenuItem5
             // 
             toolStripMenuItem5.Name = "toolStripMenuItem5";
-            toolStripMenuItem5.Size = new Size(148, 22);
+            toolStripMenuItem5.Size = new Size(158, 22);
             toolStripMenuItem5.Text = "Frissítés";
             toolStripMenuItem5.Click += toolStripMenuItem5_Click;
             // 
+            // mentésXMLbeToolStripMenuItem
+            // 
+            mentésXMLbeToolStripMenuItem.Name = "mentésXMLbeToolStripMenuItem";
+            mentésXMLbeToolStripMenuItem.Size = new Size(158, 22);
+            mentésXMLbeToolStripMenuItem.Text = "Mentés XML-be";
+            mentésXMLbeToolStripMenuItem.Click += mentésXMLbeToolStripMenuItem_Click;
+            // 
             // txtLeiras
             // 
+            txtLeiras.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtLeiras.Location = new Point(415, 56);
             txtLeiras.Multiline = true;
             txtLeiras.Name = "txtLeiras";
@@ -109,6 +119,7 @@
             // 
             // txtNev
             // 
+            txtNev.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txtNev.Location = new Point(415, 12);
             txtNev.Name = "txtNev";
             txtNev.Size = new Size(373, 23);
@@ -116,6 +127,7 @@
             // 
             // buttonUjtestver
             // 
+            buttonUjtestver.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             buttonUjtestver.Location = new Point(354, 415);
             buttonUjtestver.Name = "buttonUjtestver";
             buttonUjtestver.Size = new Size(133, 23);
@@ -126,6 +138,7 @@
             // 
             // buttonUjgyerek
             // 
+            buttonUjgyerek.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             buttonUjgyerek.Location = new Point(493, 415);
             buttonUjgyerek.Name = "buttonUjgyerek";
             buttonUjgyerek.Size = new Size(133, 23);
@@ -136,6 +149,7 @@
             // 
             // buttonMentes
             // 
+            buttonMentes.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             buttonMentes.Location = new Point(632, 415);
             buttonMentes.Name = "buttonMentes";
             buttonMentes.Size = new Size(75, 23);
@@ -146,6 +160,7 @@
             // 
             // buttonTorles
             // 
+            buttonTorles.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             buttonTorles.Location = new Point(713, 415);
             buttonTorles.Name = "buttonTorles";
             buttonTorles.Size = new Size(75, 23);
@@ -156,6 +171,7 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label1.AutoSize = true;
             label1.Location = new Point(378, 15);
             label1.Name = "label1";
@@ -165,6 +181,7 @@
             // 
             // label2
             // 
+            label2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label2.AutoSize = true;
             label2.Location = new Point(371, 228);
             label2.Name = "label2";
@@ -187,8 +204,8 @@
             Controls.Add(txtNev);
             Controls.Add(txtLeiras);
             Controls.Add(treeViewKategoriak);
-            MaximizeBox = false;
             MinimizeBox = false;
+            MinimumSize = new Size(816, 489);
             Name = "termekKategoriaForm";
             ShowInTaskbar = false;
             Text = "Termékkategóriák kezelése";
@@ -215,5 +232,6 @@
         private ToolStripMenuItem toolStripMenuItem3;
         private ToolStripMenuItem toolStripMenuItem4;
         private ToolStripMenuItem toolStripMenuItem5;
+        private ToolStripMenuItem mentésXMLbeToolStripMenuItem;
     }
 }

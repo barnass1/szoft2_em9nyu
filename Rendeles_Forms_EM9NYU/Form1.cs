@@ -12,5 +12,11 @@ namespace Rendeles_Forms_EM9NYU
             termekKategoriaForm termekKategoriaForm = new termekKategoriaForm();
             termekKategoriaForm.ShowDialog();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            UgyfelKezeloForm ugyfelKezeloForm = new UgyfelKezeloForm();
+            ugyfelKezeloForm.ShowDialog();
+        }
     }
 }

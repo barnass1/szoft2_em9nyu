@@ -28,38 +28,61 @@
         /// </summary>
         private void InitializeComponent()
         {
+            button2 = new Button();
             button1 = new Button();
+            label1 = new Label();
             SuspendLayout();
+            // 
+            // button2
+            // 
+            button2.Anchor = AnchorStyles.None;
+            button2.Location = new Point(269, 169);
+            button2.Name = "button2";
+            button2.Size = new Size(269, 23);
+            button2.TabIndex = 1;
+            button2.Text = "Ügyfelek kezelése";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // button1
             // 
-            button1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            button1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            button1.Location = new Point(500, 450);
-            button1.Margin = new Padding(6);
+            button1.Anchor = AnchorStyles.None;
+            button1.Location = new Point(269, 215);
             button1.Name = "button1";
-            button1.Size = new Size(500, 50);
-            button1.TabIndex = 0;
-            button1.Text = "Termékkategóriák kezelése";
+            button1.Size = new Size(269, 23);
+            button1.TabIndex = 2;
+            button1.Text = "Kategóriák kezelése";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            label1.Font = new Font("Segoe UI", 30F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(269, 9);
+            label1.Name = "label1";
+            label1.Size = new Size(269, 70);
+            label1.TabIndex = 3;
+            label1.Text = "Főoldal";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            ClientSize = new Size(1474, 929);
+            ClientSize = new Size(794, 435);
+            Controls.Add(label1);
             Controls.Add(button1);
-            Margin = new Padding(6);
-            MaximizeBox = false;
+            Controls.Add(button2);
+            MinimumSize = new Size(500, 300);
             Name = "Form1";
             Text = "Főoldal";
             ResumeLayout(false);
         }
 
         #endregion
-
+        private Button button2;
         private Button button1;
+        private Label label1;
     }
 }

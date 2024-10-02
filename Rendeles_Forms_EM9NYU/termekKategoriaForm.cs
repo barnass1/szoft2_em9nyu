@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace Rendeles_Forms_EM9NYU
 {
@@ -231,7 +232,7 @@ namespace Rendeles_Forms_EM9NYU
         {
             if (treeViewKategoriak.SelectedNode.Nodes.Count == 0)
             {
-                
+
                 TermekKategoria termekKategoria = (TermekKategoria)treeViewKategoriak.SelectedNode.Tag;
                 _context.TermekKategoria.Remove(termekKategoria);
                 _context.SaveChanges();
@@ -241,6 +242,65 @@ namespace Rendeles_Forms_EM9NYU
             else
             {
                 MessageBox.Show("Nem törölhető olyan kategória, amelynek van alkategóriája!", "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void treeViewKategoriak_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                treeViewKategoriak.SelectedNode = e.Node;
+                contextMenuStripKategoria.Show(treeViewKategoriak, e.Location);
+            }
+        }
+
+        private void mentésXMLbeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            XDocument xdoc = new XDocument();
+            XDeclaration xdec = new XDeclaration("1.0", "utf-8", "yes");
+            xdoc.Declaration = xdec;
+
+            XElement root = new XElement("Kategoriak");
+            xdoc.Add(root);
+
+            void SaveNodeToXml(TreeNode node, XElement parent)
+            {
+                TermekKategoria kategoria = (TermekKategoria)node.Tag;
+                XElement kategoriaElem = new XElement("Kategoria",
+                 new XAttribute("KategoriaId", kategoria.KategoriaId),
+                    new XAttribute("Nev", kategoria.Nev));
+
+                parent.Add(kategoriaElem);
+                foreach (TreeNode childNode in node.Nodes)
+                {
+                    SaveNodeToXml(childNode, kategoriaElem);
+                }
+            }
+
+            foreach (TreeNode node in treeViewKategoriak.Nodes)
+            {
+                XElement kategoria = new XElement("Kategoria");
+                root.Add(kategoria);
+                SaveNodeToXml(node, kategoria);
+            }
+
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "XML fájlok (*.xml)|*.xml";
+            saveFileDialog.Title = "Kategóriák mentése XML-be";
+            saveFileDialog.FileName = "kategoriak.xml";
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    xdoc.Save(saveFileDialog.FileName);
+                    MessageBox.Show("A kategóriák sikeresen elmentve XML-be!", "Siker", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show($"Hiba történt a mentés során: {ex.Message}", "Hiba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
     }
