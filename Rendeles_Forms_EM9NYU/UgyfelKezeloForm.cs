@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Microsoft.EntityFrameworkCore;
 using Rendeles_Forms_EM9NYU.Models;
 using Rendeles_Forms_EM9NYU.Data;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Rendeles_Forms_EM9NYU
 {
@@ -27,13 +28,19 @@ namespace Rendeles_Forms_EM9NYU
         {
             _context.Ugyfel.Load();
             ugyfelBindingList = _context.Ugyfel.Local.ToBindingList();
+            ugyfelBindingSource.DataSource = ugyfelBindingList;
             dgvUgyfelek.DataSource = ugyfelBindingList;
         }
 
         private void tbSzuro_TextChanged(object sender, EventArgs e)
         {
             string filterString = tbSzuro.Text.ToLower();
-            ugyfelBindingSource.DataSource = _context.Ugyfel.Local.ToBindingList().Where(u => u.Nev.ToLower().Contains(filterString)).ToList();
+            ugyfelBindingSource.DataSource = from u in ugyfelBindingList
+                                             where u.Nev.ToLower().Contains(filterString) ||
+                                             u.Email.ToLower().Contains(filterString) ||
+                                             (u.Telefonszam != null && u.Telefonszam.Contains(filterString))
+                                             orderby u.UgyfelId
+                                             select u;
         }
 
         private void buttonUj_Click(object sender, EventArgs e)
@@ -42,7 +49,50 @@ namespace Rendeles_Forms_EM9NYU
             if (ugyfelSzekresztesForm.ShowDialog() == DialogResult.OK)
             {
                 _context.Ugyfel.Add(ugyfelSzekresztesForm.SzerkesztettUgyfel);
+                Mentés();
+            }
+        }
+
+        void Mentés()
+        {
+            try
+            {
                 _context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void buttonMod_Click(object sender, EventArgs e)
+        {
+            Ugyfel szerkesztettUgyfel = ugyfelBindingSource.Current as Ugyfel;
+            if (szerkesztettUgyfel == null)
+            {
+                MessageBox.Show("Nincs kiválasztott ügyfél!");
+                return;
+            }
+            UgyfelSzekresztesForm ugyfelSzekresztesForm = new UgyfelSzekresztesForm(szerkesztettUgyfel);
+            if (ugyfelSzekresztesForm.ShowDialog() == DialogResult.OK)
+            {
+                Mentés();
+            }
+
+        }
+
+        private void buttonTorles_Click(object sender, EventArgs e)
+        {
+            Ugyfel torlendoUgyfel = ugyfelBindingSource.Current as Ugyfel;
+            if (torlendoUgyfel == null)
+            {
+                MessageBox.Show("Nincs kiválasztott ügyfél!");
+                return;
+            }
+            if (MessageBox.Show("Biztosan törölni akarja az ügyfelet?", "Törlés", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                _context.Ugyfel.Remove(torlendoUgyfel);
+                Mentés();
             }
         }
     }

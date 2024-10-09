@@ -30,11 +30,6 @@
         {
             components = new System.ComponentModel.Container();
             dgvUgyfelek = new DataGridView();
-            ugyfelBindingSource = new BindingSource(components);
-            tbSzuro = new TextBox();
-            buttonUj = new Button();
-            buttonMod = new Button();
-            buttonTorles = new Button();
             ugyfelIdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             nevDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             emailDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -42,6 +37,11 @@
             lakcimIdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             lakcimDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             rendelesDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            ugyfelBindingSource = new BindingSource(components);
+            tbSzuro = new TextBox();
+            buttonUj = new Button();
+            buttonMod = new Button();
+            buttonTorles = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvUgyfelek).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ugyfelBindingSource).BeginInit();
             SuspendLayout();
@@ -55,63 +55,14 @@
             dgvUgyfelek.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvUgyfelek.Columns.AddRange(new DataGridViewColumn[] { ugyfelIdDataGridViewTextBoxColumn, nevDataGridViewTextBoxColumn, emailDataGridViewTextBoxColumn, telefonszamDataGridViewTextBoxColumn, lakcimIdDataGridViewTextBoxColumn, lakcimDataGridViewTextBoxColumn, rendelesDataGridViewTextBoxColumn });
             dgvUgyfelek.DataSource = ugyfelBindingSource;
-            dgvUgyfelek.Location = new Point(22, 87);
-            dgvUgyfelek.Margin = new Padding(6);
+            dgvUgyfelek.Location = new Point(12, 41);
             dgvUgyfelek.Name = "dgvUgyfelek";
             dgvUgyfelek.ReadOnly = true;
             dgvUgyfelek.RowHeadersWidth = 82;
             dgvUgyfelek.RowTemplate.Height = 25;
             dgvUgyfelek.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvUgyfelek.Size = new Size(1441, 809);
+            dgvUgyfelek.Size = new Size(776, 379);
             dgvUgyfelek.TabIndex = 0;
-            // 
-            // ugyfelBindingSource
-            // 
-            ugyfelBindingSource.DataSource = typeof(Models.Ugyfel);
-            // 
-            // tbSzuro
-            // 
-            tbSzuro.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            tbSzuro.Location = new Point(22, 26);
-            tbSzuro.Margin = new Padding(6);
-            tbSzuro.Name = "tbSzuro";
-            tbSzuro.Size = new Size(1438, 39);
-            tbSzuro.TabIndex = 1;
-            tbSzuro.TextChanged += tbSzuro_TextChanged;
-            // 
-            // buttonUj
-            // 
-            buttonUj.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            buttonUj.Location = new Point(773, 909);
-            buttonUj.Margin = new Padding(6);
-            buttonUj.Name = "buttonUj";
-            buttonUj.Size = new Size(223, 49);
-            buttonUj.TabIndex = 2;
-            buttonUj.Text = "Új ügyfél";
-            buttonUj.UseVisualStyleBackColor = true;
-            buttonUj.Click += buttonUj_Click;
-            // 
-            // buttonMod
-            // 
-            buttonMod.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            buttonMod.Location = new Point(1007, 909);
-            buttonMod.Margin = new Padding(6);
-            buttonMod.Name = "buttonMod";
-            buttonMod.Size = new Size(223, 49);
-            buttonMod.TabIndex = 3;
-            buttonMod.Text = "Módosítás";
-            buttonMod.UseVisualStyleBackColor = true;
-            // 
-            // buttonTorles
-            // 
-            buttonTorles.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            buttonTorles.Location = new Point(1241, 909);
-            buttonTorles.Margin = new Padding(6);
-            buttonTorles.Name = "buttonTorles";
-            buttonTorles.Size = new Size(223, 49);
-            buttonTorles.TabIndex = 4;
-            buttonTorles.Text = "Törlés";
-            buttonTorles.UseVisualStyleBackColor = true;
             // 
             // ugyfelIdDataGridViewTextBoxColumn
             // 
@@ -176,18 +127,63 @@
             rendelesDataGridViewTextBoxColumn.ReadOnly = true;
             rendelesDataGridViewTextBoxColumn.Width = 200;
             // 
+            // ugyfelBindingSource
+            // 
+            ugyfelBindingSource.DataSource = typeof(Models.Ugyfel);
+            // 
+            // tbSzuro
+            // 
+            tbSzuro.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            tbSzuro.Location = new Point(12, 12);
+            tbSzuro.Name = "tbSzuro";
+            tbSzuro.Size = new Size(776, 23);
+            tbSzuro.TabIndex = 1;
+            tbSzuro.TextChanged += tbSzuro_TextChanged;
+            // 
+            // buttonUj
+            // 
+            buttonUj.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            buttonUj.Location = new Point(416, 426);
+            buttonUj.Name = "buttonUj";
+            buttonUj.Size = new Size(120, 23);
+            buttonUj.TabIndex = 2;
+            buttonUj.Text = "Új ügyfél";
+            buttonUj.UseVisualStyleBackColor = true;
+            buttonUj.Click += buttonUj_Click;
+            // 
+            // buttonMod
+            // 
+            buttonMod.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            buttonMod.Location = new Point(542, 426);
+            buttonMod.Name = "buttonMod";
+            buttonMod.Size = new Size(120, 23);
+            buttonMod.TabIndex = 3;
+            buttonMod.Text = "Módosítás";
+            buttonMod.UseVisualStyleBackColor = true;
+            buttonMod.Click += buttonMod_Click;
+            // 
+            // buttonTorles
+            // 
+            buttonTorles.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            buttonTorles.Location = new Point(668, 426);
+            buttonTorles.Name = "buttonTorles";
+            buttonTorles.Size = new Size(120, 23);
+            buttonTorles.TabIndex = 4;
+            buttonTorles.Text = "Törlés";
+            buttonTorles.UseVisualStyleBackColor = true;
+            buttonTorles.Click += buttonTorles_Click;
+            // 
             // UgyfelKezeloForm
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1486, 983);
+            ClientSize = new Size(800, 461);
             Controls.Add(buttonTorles);
             Controls.Add(buttonMod);
             Controls.Add(buttonUj);
             Controls.Add(tbSzuro);
             Controls.Add(dgvUgyfelek);
-            Margin = new Padding(6);
-            MinimumSize = new Size(906, 666);
+            MinimumSize = new Size(495, 333);
             Name = "UgyfelKezeloForm";
             Text = "UgyfelKezeloForm";
             Load += UgyfelKezeloForm_Load;
