@@ -30,11 +30,11 @@
         {
             components = new System.ComponentModel.Container();
             dgvUgyfelek = new DataGridView();
+            ugyfelBindingSource = new BindingSource(components);
             tbSzuro = new TextBox();
             buttonUj = new Button();
             buttonMod = new Button();
             buttonTorles = new Button();
-            ugyfelBindingSource = new BindingSource(components);
             ugyfelIdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             nevDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             emailDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -55,38 +55,49 @@
             dgvUgyfelek.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvUgyfelek.Columns.AddRange(new DataGridViewColumn[] { ugyfelIdDataGridViewTextBoxColumn, nevDataGridViewTextBoxColumn, emailDataGridViewTextBoxColumn, telefonszamDataGridViewTextBoxColumn, lakcimIdDataGridViewTextBoxColumn, lakcimDataGridViewTextBoxColumn, rendelesDataGridViewTextBoxColumn });
             dgvUgyfelek.DataSource = ugyfelBindingSource;
-            dgvUgyfelek.Location = new Point(12, 41);
+            dgvUgyfelek.Location = new Point(22, 87);
+            dgvUgyfelek.Margin = new Padding(6);
             dgvUgyfelek.Name = "dgvUgyfelek";
             dgvUgyfelek.ReadOnly = true;
+            dgvUgyfelek.RowHeadersWidth = 82;
             dgvUgyfelek.RowTemplate.Height = 25;
             dgvUgyfelek.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvUgyfelek.Size = new Size(776, 379);
+            dgvUgyfelek.Size = new Size(1441, 809);
             dgvUgyfelek.TabIndex = 0;
+            // 
+            // ugyfelBindingSource
+            // 
+            ugyfelBindingSource.DataSource = typeof(Models.Ugyfel);
             // 
             // tbSzuro
             // 
             tbSzuro.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            tbSzuro.Location = new Point(12, 12);
+            tbSzuro.Location = new Point(22, 26);
+            tbSzuro.Margin = new Padding(6);
             tbSzuro.Name = "tbSzuro";
-            tbSzuro.Size = new Size(776, 23);
+            tbSzuro.Size = new Size(1438, 39);
             tbSzuro.TabIndex = 1;
+            tbSzuro.TextChanged += tbSzuro_TextChanged;
             // 
             // buttonUj
             // 
             buttonUj.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            buttonUj.Location = new Point(416, 426);
+            buttonUj.Location = new Point(773, 909);
+            buttonUj.Margin = new Padding(6);
             buttonUj.Name = "buttonUj";
-            buttonUj.Size = new Size(120, 23);
+            buttonUj.Size = new Size(223, 49);
             buttonUj.TabIndex = 2;
             buttonUj.Text = "Új ügyfél";
             buttonUj.UseVisualStyleBackColor = true;
+            buttonUj.Click += buttonUj_Click;
             // 
             // buttonMod
             // 
             buttonMod.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            buttonMod.Location = new Point(542, 426);
+            buttonMod.Location = new Point(1007, 909);
+            buttonMod.Margin = new Padding(6);
             buttonMod.Name = "buttonMod";
-            buttonMod.Size = new Size(120, 23);
+            buttonMod.Size = new Size(223, 49);
             buttonMod.TabIndex = 3;
             buttonMod.Text = "Módosítás";
             buttonMod.UseVisualStyleBackColor = true;
@@ -94,77 +105,89 @@
             // buttonTorles
             // 
             buttonTorles.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            buttonTorles.Location = new Point(668, 426);
+            buttonTorles.Location = new Point(1241, 909);
+            buttonTorles.Margin = new Padding(6);
             buttonTorles.Name = "buttonTorles";
-            buttonTorles.Size = new Size(120, 23);
+            buttonTorles.Size = new Size(223, 49);
             buttonTorles.TabIndex = 4;
             buttonTorles.Text = "Törlés";
             buttonTorles.UseVisualStyleBackColor = true;
-            // 
-            // ugyfelBindingSource
-            // 
-            ugyfelBindingSource.DataSource = typeof(Models.Ugyfel);
             // 
             // ugyfelIdDataGridViewTextBoxColumn
             // 
             ugyfelIdDataGridViewTextBoxColumn.DataPropertyName = "UgyfelId";
             ugyfelIdDataGridViewTextBoxColumn.HeaderText = "UgyfelId";
+            ugyfelIdDataGridViewTextBoxColumn.MinimumWidth = 10;
             ugyfelIdDataGridViewTextBoxColumn.Name = "ugyfelIdDataGridViewTextBoxColumn";
             ugyfelIdDataGridViewTextBoxColumn.ReadOnly = true;
+            ugyfelIdDataGridViewTextBoxColumn.Width = 200;
             // 
             // nevDataGridViewTextBoxColumn
             // 
             nevDataGridViewTextBoxColumn.DataPropertyName = "Nev";
             nevDataGridViewTextBoxColumn.HeaderText = "Nev";
+            nevDataGridViewTextBoxColumn.MinimumWidth = 10;
             nevDataGridViewTextBoxColumn.Name = "nevDataGridViewTextBoxColumn";
             nevDataGridViewTextBoxColumn.ReadOnly = true;
+            nevDataGridViewTextBoxColumn.Width = 200;
             // 
             // emailDataGridViewTextBoxColumn
             // 
             emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
             emailDataGridViewTextBoxColumn.HeaderText = "Email";
+            emailDataGridViewTextBoxColumn.MinimumWidth = 10;
             emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
             emailDataGridViewTextBoxColumn.ReadOnly = true;
+            emailDataGridViewTextBoxColumn.Width = 200;
             // 
             // telefonszamDataGridViewTextBoxColumn
             // 
             telefonszamDataGridViewTextBoxColumn.DataPropertyName = "Telefonszam";
             telefonszamDataGridViewTextBoxColumn.HeaderText = "Telefonszam";
+            telefonszamDataGridViewTextBoxColumn.MinimumWidth = 10;
             telefonszamDataGridViewTextBoxColumn.Name = "telefonszamDataGridViewTextBoxColumn";
             telefonszamDataGridViewTextBoxColumn.ReadOnly = true;
+            telefonszamDataGridViewTextBoxColumn.Width = 200;
             // 
             // lakcimIdDataGridViewTextBoxColumn
             // 
             lakcimIdDataGridViewTextBoxColumn.DataPropertyName = "LakcimId";
             lakcimIdDataGridViewTextBoxColumn.HeaderText = "LakcimId";
+            lakcimIdDataGridViewTextBoxColumn.MinimumWidth = 10;
             lakcimIdDataGridViewTextBoxColumn.Name = "lakcimIdDataGridViewTextBoxColumn";
             lakcimIdDataGridViewTextBoxColumn.ReadOnly = true;
+            lakcimIdDataGridViewTextBoxColumn.Width = 200;
             // 
             // lakcimDataGridViewTextBoxColumn
             // 
             lakcimDataGridViewTextBoxColumn.DataPropertyName = "Lakcim";
             lakcimDataGridViewTextBoxColumn.HeaderText = "Lakcim";
+            lakcimDataGridViewTextBoxColumn.MinimumWidth = 10;
             lakcimDataGridViewTextBoxColumn.Name = "lakcimDataGridViewTextBoxColumn";
             lakcimDataGridViewTextBoxColumn.ReadOnly = true;
+            lakcimDataGridViewTextBoxColumn.Width = 200;
             // 
             // rendelesDataGridViewTextBoxColumn
             // 
             rendelesDataGridViewTextBoxColumn.DataPropertyName = "Rendeles";
             rendelesDataGridViewTextBoxColumn.HeaderText = "Rendeles";
+            rendelesDataGridViewTextBoxColumn.MinimumWidth = 10;
             rendelesDataGridViewTextBoxColumn.Name = "rendelesDataGridViewTextBoxColumn";
             rendelesDataGridViewTextBoxColumn.ReadOnly = true;
+            rendelesDataGridViewTextBoxColumn.Width = 200;
             // 
             // UgyfelKezeloForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 461);
+            ClientSize = new Size(1486, 983);
             Controls.Add(buttonTorles);
             Controls.Add(buttonMod);
             Controls.Add(buttonUj);
             Controls.Add(tbSzuro);
             Controls.Add(dgvUgyfelek);
-            MinimumSize = new Size(500, 350);
+            Margin = new Padding(6);
+            MinimumSize = new Size(906, 666);
             Name = "UgyfelKezeloForm";
             Text = "UgyfelKezeloForm";
             Load += UgyfelKezeloForm_Load;
@@ -181,6 +204,7 @@
         private Button buttonUj;
         private Button buttonMod;
         private Button buttonTorles;
+        private BindingSource ugyfelBindingSource;
         private DataGridViewTextBoxColumn ugyfelIdDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn nevDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
@@ -188,6 +212,5 @@
         private DataGridViewTextBoxColumn lakcimIdDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn lakcimDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn rendelesDataGridViewTextBoxColumn;
-        private BindingSource ugyfelBindingSource;
     }
 }
