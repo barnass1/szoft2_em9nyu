@@ -31,7 +31,9 @@ namespace Rendeles_Forms_EM9NYU
         {
             InitializeComponent();
             SzerkesztettUgyfel = new Ugyfel();
+            SzerkesztettCim = new Cim();
             ugyfelBindingSource.DataSource = SzerkesztettUgyfel;
+            cimBindingSource.DataSource = SzerkesztettCim;
         }
 
         private void button1_Click(object sender, EventArgs e)

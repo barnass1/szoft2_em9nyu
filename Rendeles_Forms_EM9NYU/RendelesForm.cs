@@ -69,6 +69,11 @@ namespace Rendeles_Forms_EM9NYU
         {
             LoadUgyfelek();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
     public class CimEgybenDTO

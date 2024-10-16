@@ -24,11 +24,15 @@ namespace Rendeles_Forms_EM9NYU
 
         private RendelesDbContext _context;
         private BindingList<Ugyfel> ugyfelBindingList;
+        private BindingList<Cim> cimBindingList;
         private void UgyfelKezeloForm_Load(object sender, EventArgs e)
         {
             _context.Ugyfel.Load();
+            _context.Cim.Load();
             ugyfelBindingList = _context.Ugyfel.Local.ToBindingList();
+            cimBindingList = _context.Cim.Local.ToBindingList();
             ugyfelBindingSource.DataSource = ugyfelBindingList;
+            //cimBindingSource.DataSource = cimBindingList;
             dgvUgyfelek.DataSource = ugyfelBindingList;
         }
 
@@ -78,6 +82,7 @@ namespace Rendeles_Forms_EM9NYU
             UgyfelSzekresztesForm ugyfelSzekresztesForm = new UgyfelSzekresztesForm(szerkesztettUgyfel);
             if (ugyfelSzekresztesForm.ShowDialog() == DialogResult.OK)
             {
+                ugyfelBindingSource.ResetCurrentItem();
                 Mentés();
             }
 
