@@ -18,5 +18,11 @@ namespace Rendeles_Forms_EM9NYU
             UgyfelKezeloForm ugyfelKezeloForm = new UgyfelKezeloForm();
             ugyfelKezeloForm.ShowDialog();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            RendelesForm rendelesForm = new RendelesForm();
+            rendelesForm.ShowDialog();
+        }
     }
 }

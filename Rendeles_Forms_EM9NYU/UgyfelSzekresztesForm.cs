@@ -18,11 +18,13 @@ namespace Rendeles_Forms_EM9NYU
 
 
         public Ugyfel SzerkesztettUgyfel { get; set; }
+        public Cim SzerkesztettCim { get; set; }
         public UgyfelSzekresztesForm(Ugyfel ugyfel)
         {
             InitializeComponent();
             this.SzerkesztettUgyfel = ugyfel;
             ugyfelBindingSource.DataSource = SzerkesztettUgyfel;
+            cimBindingSource.DataSource = SzerkesztettCim;
         }
 
         public UgyfelSzekresztesForm()

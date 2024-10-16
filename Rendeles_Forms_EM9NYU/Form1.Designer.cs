@@ -31,12 +31,13 @@
             button2 = new Button();
             button1 = new Button();
             label1 = new Label();
+            button3 = new Button();
             SuspendLayout();
             // 
             // button2
             // 
             button2.Anchor = AnchorStyles.None;
-            button2.Location = new Point(269, 169);
+            button2.Location = new Point(269, 186);
             button2.Name = "button2";
             button2.Size = new Size(269, 23);
             button2.TabIndex = 1;
@@ -66,11 +67,22 @@
             label1.Text = "Főoldal";
             label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // button3
+            // 
+            button3.Location = new Point(269, 244);
+            button3.Name = "button3";
+            button3.Size = new Size(269, 23);
+            button3.TabIndex = 4;
+            button3.Text = "button3";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(794, 435);
+            Controls.Add(button3);
             Controls.Add(label1);
             Controls.Add(button1);
             Controls.Add(button2);
@@ -84,5 +96,6 @@
         private Button button2;
         private Button button1;
         private Label label1;
+        private Button button3;
     }
 }

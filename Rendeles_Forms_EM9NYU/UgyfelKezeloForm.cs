@@ -49,7 +49,9 @@ namespace Rendeles_Forms_EM9NYU
             if (ugyfelSzekresztesForm.ShowDialog() == DialogResult.OK)
             {
                 _context.Ugyfel.Add(ugyfelSzekresztesForm.SzerkesztettUgyfel);
+                _context.Cim.Add(ugyfelSzekresztesForm.SzerkesztettCim);
                 Mentés();
+                
             }
         }
 

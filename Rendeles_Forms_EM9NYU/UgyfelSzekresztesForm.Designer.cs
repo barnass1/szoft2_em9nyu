@@ -34,15 +34,13 @@
             textBox2 = new TextBox();
             textBox3 = new TextBox();
             textBox4 = new TextBox();
+            cimBindingSource = new BindingSource(components);
             textBox5 = new TextBox();
             textBox6 = new TextBox();
             textBox7 = new TextBox();
             textBox8 = new TextBox();
             button1 = new Button();
             button2 = new Button();
-            radioButton1 = new RadioButton();
-            comboBox1 = new ComboBox();
-            radioButton2 = new RadioButton();
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
@@ -52,10 +50,9 @@
             label7 = new Label();
             label8 = new Label();
             errorProvider1 = new ErrorProvider(components);
-            cimBindingSource = new BindingSource(components);
             ((System.ComponentModel.ISupportInitialize)ugyfelBindingSource).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)cimBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
             // 
             // textBox1
@@ -94,15 +91,21 @@
             // 
             // textBox4
             // 
-            textBox4.Location = new Point(84, 207);
+            textBox4.DataBindings.Add(new Binding("Text", cimBindingSource, "Orszag", true));
+            textBox4.Location = new Point(84, 82);
             textBox4.Margin = new Padding(2, 1, 2, 1);
             textBox4.Name = "textBox4";
             textBox4.Size = new Size(272, 23);
             textBox4.TabIndex = 3;
             // 
+            // cimBindingSource
+            // 
+            cimBindingSource.DataSource = typeof(Models.Cim);
+            // 
             // textBox5
             // 
-            textBox5.Location = new Point(84, 232);
+            textBox5.DataBindings.Add(new Binding("Text", cimBindingSource, "Iranyitoszam", true));
+            textBox5.Location = new Point(84, 107);
             textBox5.Margin = new Padding(2, 1, 2, 1);
             textBox5.Name = "textBox5";
             textBox5.Size = new Size(272, 23);
@@ -110,7 +113,8 @@
             // 
             // textBox6
             // 
-            textBox6.Location = new Point(84, 257);
+            textBox6.DataBindings.Add(new Binding("Text", cimBindingSource, "Varos", true));
+            textBox6.Location = new Point(84, 132);
             textBox6.Margin = new Padding(2, 1, 2, 1);
             textBox6.Name = "textBox6";
             textBox6.Size = new Size(272, 23);
@@ -118,7 +122,8 @@
             // 
             // textBox7
             // 
-            textBox7.Location = new Point(84, 282);
+            textBox7.DataBindings.Add(new Binding("Text", cimBindingSource, "Utca", true));
+            textBox7.Location = new Point(84, 157);
             textBox7.Margin = new Padding(2, 1, 2, 1);
             textBox7.Name = "textBox7";
             textBox7.Size = new Size(272, 23);
@@ -126,7 +131,8 @@
             // 
             // textBox8
             // 
-            textBox8.Location = new Point(84, 307);
+            textBox8.DataBindings.Add(new Binding("Text", cimBindingSource, "Hazszam", true));
+            textBox8.Location = new Point(84, 182);
             textBox8.Margin = new Padding(2, 1, 2, 1);
             textBox8.Name = "textBox8";
             textBox8.Size = new Size(272, 23);
@@ -134,7 +140,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(11, 348);
+            button1.Location = new Point(11, 255);
             button1.Margin = new Padding(2, 1, 2, 1);
             button1.Name = "button1";
             button1.Size = new Size(350, 22);
@@ -145,47 +151,13 @@
             // 
             // button2
             // 
-            button2.Location = new Point(11, 372);
+            button2.Location = new Point(11, 279);
             button2.Margin = new Padding(2, 1, 2, 1);
             button2.Name = "button2";
             button2.Size = new Size(350, 22);
             button2.TabIndex = 9;
             button2.Text = "Mégse";
             button2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton1
-            // 
-            radioButton1.AutoSize = true;
-            radioButton1.Location = new Point(6, 95);
-            radioButton1.Margin = new Padding(2, 1, 2, 1);
-            radioButton1.Name = "radioButton1";
-            radioButton1.Size = new Size(134, 19);
-            radioButton1.TabIndex = 10;
-            radioButton1.TabStop = true;
-            radioButton1.Text = "Létező cím beállítása";
-            radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // comboBox1
-            // 
-            comboBox1.DataSource = cimBindingSource;
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(6, 116);
-            comboBox1.Margin = new Padding(2, 1, 2, 1);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(350, 23);
-            comboBox1.TabIndex = 11;
-            // 
-            // radioButton2
-            // 
-            radioButton2.AutoSize = true;
-            radioButton2.Location = new Point(6, 161);
-            radioButton2.Margin = new Padding(2, 1, 2, 1);
-            radioButton2.Name = "radioButton2";
-            radioButton2.Size = new Size(111, 19);
-            radioButton2.TabIndex = 12;
-            radioButton2.TabStop = true;
-            radioButton2.Text = "Új cím beállítása";
-            radioButton2.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -220,7 +192,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(6, 210);
+            label4.Location = new Point(6, 85);
             label4.Margin = new Padding(2, 0, 2, 0);
             label4.Name = "label4";
             label4.Size = new Size(43, 15);
@@ -230,7 +202,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(6, 235);
+            label5.Location = new Point(6, 110);
             label5.Margin = new Padding(2, 0, 2, 0);
             label5.Name = "label5";
             label5.Size = new Size(74, 15);
@@ -240,7 +212,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(6, 260);
+            label6.Location = new Point(6, 135);
             label6.Margin = new Padding(2, 0, 2, 0);
             label6.Name = "label6";
             label6.Size = new Size(35, 15);
@@ -250,7 +222,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(6, 285);
+            label7.Location = new Point(6, 160);
             label7.Margin = new Padding(2, 0, 2, 0);
             label7.Name = "label7";
             label7.Size = new Size(31, 15);
@@ -260,7 +232,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(6, 310);
+            label8.Location = new Point(6, 185);
             label8.Margin = new Padding(2, 0, 2, 0);
             label8.Name = "label8";
             label8.Size = new Size(54, 15);
@@ -271,15 +243,11 @@
             // 
             errorProvider1.ContainerControl = this;
             // 
-            // cimBindingSource
-            // 
-            cimBindingSource.DataSource = typeof(Models.Cim);
-            // 
             // UgyfelSzekresztesForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(372, 404);
+            ClientSize = new Size(372, 311);
             Controls.Add(label8);
             Controls.Add(label7);
             Controls.Add(label6);
@@ -288,9 +256,6 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(radioButton2);
-            Controls.Add(comboBox1);
-            Controls.Add(radioButton1);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(textBox8);
@@ -302,13 +267,13 @@
             Controls.Add(textBox2);
             Controls.Add(textBox1);
             Margin = new Padding(2, 1, 2, 1);
-            MinimumSize = new Size(330, 443);
+            MinimumSize = new Size(330, 350);
             Name = "UgyfelSzekresztesForm";
             Text = "UgyfelSzekresztesForm";
             Load += UgyfelSzekresztesForm_Load;
             ((System.ComponentModel.ISupportInitialize)ugyfelBindingSource).EndInit();
-            ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ((System.ComponentModel.ISupportInitialize)cimBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -325,9 +290,6 @@
         private TextBox textBox8;
         private Button button1;
         private Button button2;
-        private RadioButton radioButton1;
-        private ComboBox comboBox1;
-        private RadioButton radioButton2;
         private Label label1;
         private Label label2;
         private Label label3;
