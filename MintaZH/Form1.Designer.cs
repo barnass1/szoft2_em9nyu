@@ -37,13 +37,18 @@
             textBox2 = new TextBox();
             button2 = new Button();
             dataGridView1 = new DataGridView();
-            nyersanyagNevDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            hozzávalóBindingSource = new BindingSource(components);
             button1 = new Button();
             button3 = new Button();
             button4 = new Button();
             textBox3 = new TextBox();
             label1 = new Label();
+            hozzávalóBindingSource = new BindingSource(components);
+            receptIDDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            fogasIDDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            nyersanyagNevDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            mennyiseg4foDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            egysegNevDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            árDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)fogasokBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nyersanyagokBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -111,23 +116,14 @@
             // 
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { nyersanyagNevDataGridViewTextBoxColumn });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { receptIDDataGridViewTextBoxColumn, fogasIDDataGridViewTextBoxColumn, nyersanyagNevDataGridViewTextBoxColumn, mennyiseg4foDataGridViewTextBoxColumn, egysegNevDataGridViewTextBoxColumn, árDataGridViewTextBoxColumn });
             dataGridView1.DataSource = hozzávalóBindingSource;
             dataGridView1.Location = new Point(203, 44);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowTemplate.Height = 25;
             dataGridView1.Size = new Size(333, 364);
             dataGridView1.TabIndex = 6;
-            // 
-            // nyersanyagNevDataGridViewTextBoxColumn
-            // 
-            nyersanyagNevDataGridViewTextBoxColumn.DataPropertyName = "NyersanyagNev";
-            nyersanyagNevDataGridViewTextBoxColumn.HeaderText = "NyersanyagNev";
-            nyersanyagNevDataGridViewTextBoxColumn.Name = "nyersanyagNevDataGridViewTextBoxColumn";
-            // 
-            // hozzávalóBindingSource
-            // 
-            hozzávalóBindingSource.DataSource = typeof(Hozzávaló);
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // button1
             // 
@@ -174,6 +170,46 @@
             label1.TabIndex = 11;
             label1.Text = "label1";
             // 
+            // hozzávalóBindingSource
+            // 
+            hozzávalóBindingSource.DataSource = typeof(Hozzávaló);
+            // 
+            // receptIDDataGridViewTextBoxColumn
+            // 
+            receptIDDataGridViewTextBoxColumn.DataPropertyName = "ReceptID";
+            receptIDDataGridViewTextBoxColumn.HeaderText = "ReceptID";
+            receptIDDataGridViewTextBoxColumn.Name = "receptIDDataGridViewTextBoxColumn";
+            // 
+            // fogasIDDataGridViewTextBoxColumn
+            // 
+            fogasIDDataGridViewTextBoxColumn.DataPropertyName = "FogasID";
+            fogasIDDataGridViewTextBoxColumn.HeaderText = "FogasID";
+            fogasIDDataGridViewTextBoxColumn.Name = "fogasIDDataGridViewTextBoxColumn";
+            // 
+            // nyersanyagNevDataGridViewTextBoxColumn
+            // 
+            nyersanyagNevDataGridViewTextBoxColumn.DataPropertyName = "NyersanyagNev";
+            nyersanyagNevDataGridViewTextBoxColumn.HeaderText = "NyersanyagNev";
+            nyersanyagNevDataGridViewTextBoxColumn.Name = "nyersanyagNevDataGridViewTextBoxColumn";
+            // 
+            // mennyiseg4foDataGridViewTextBoxColumn
+            // 
+            mennyiseg4foDataGridViewTextBoxColumn.DataPropertyName = "Mennyiseg_4fo";
+            mennyiseg4foDataGridViewTextBoxColumn.HeaderText = "Mennyiseg_4fo";
+            mennyiseg4foDataGridViewTextBoxColumn.Name = "mennyiseg4foDataGridViewTextBoxColumn";
+            // 
+            // egysegNevDataGridViewTextBoxColumn
+            // 
+            egysegNevDataGridViewTextBoxColumn.DataPropertyName = "EgysegNev";
+            egysegNevDataGridViewTextBoxColumn.HeaderText = "EgysegNev";
+            egysegNevDataGridViewTextBoxColumn.Name = "egysegNevDataGridViewTextBoxColumn";
+            // 
+            // árDataGridViewTextBoxColumn
+            // 
+            árDataGridViewTextBoxColumn.DataPropertyName = "Ár";
+            árDataGridViewTextBoxColumn.HeaderText = "Ár";
+            árDataGridViewTextBoxColumn.Name = "árDataGridViewTextBoxColumn";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -213,9 +249,14 @@
         private Button button4;
         private TextBox textBox3;
         private Label label1;
-        private DataGridViewTextBoxColumn nyersanyagNevDataGridViewTextBoxColumn;
         private BindingSource nyersanyagokBindingSource;
         private BindingSource fogasokBindingSource;
+        private DataGridViewTextBoxColumn receptIDDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn fogasIDDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn nyersanyagNevDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn mennyiseg4foDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn egysegNevDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn árDataGridViewTextBoxColumn;
         private BindingSource hozzávalóBindingSource;
     }
 }

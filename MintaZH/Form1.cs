@@ -79,7 +79,6 @@ namespace MintaZH
         {
             if (listBox1.SelectedItem == null)
             {
-                // Handle the case when no item is selected
                 return;
             }
 
@@ -87,10 +86,8 @@ namespace MintaZH
 
             var hozzávalók = from x in _context.Receptek
                              where x.FogasId == id
-                             select new Hozzávaló
+                             select new
                              {
-                                 ReceptID = x.ReceptId,
-                                 FogasID = x.FogasId,
                                  NyersanyagNev = x.Nyersanyag.NyersanyagNev,
                                  Mennyiseg_4fo = x.Mennyiseg4fo,
                                  EgysegNev = x.Nyersanyag.MennyisegiEgyseg.EgysegNev,
@@ -102,15 +99,14 @@ namespace MintaZH
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Receptek r = new Receptek();
-            r.NyersanyagId = ((Nyersanyagok)listBox2.SelectedItem).NyersanyagId;
-            r.FogasId = ((Fogasok)listBox1.SelectedItem).FogasId;
-            double m;
-            if (!double.TryParse(textBox3.Text, out m)) return;
-            r.Mennyiseg4fo = m;
-            _context.Receptek.Add(r);
-            _context.SaveChanges();
-            HozzávalóListázás(); //Az középsõ rácsot kell újratölteni
+            string newNyersanyag = textBox3.Text;
+            if (!string.IsNullOrEmpty(newNyersanyag))
+            {
+                var nyersanyag = new Nyersanyagok { NyersanyagNev = newNyersanyag };
+                _context.Nyersanyagok.Add(nyersanyag);
+                _context.SaveChanges();
+                NyersanyagListazas();
+            }
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -120,18 +116,17 @@ namespace MintaZH
 
         private void button4_Click(object sender, EventArgs e)
         {
-            var selectedHozzávaló = (Hozzávaló)hozzávalóBindingSource.Current;
-
-            var törlendõ = (from x in _context.Receptek
-                            where x.ReceptId == selectedHozzávaló.ReceptID
-                            select x).FirstOrDefault();
-
-            if (törlendõ != null)
+            if (listBox2.SelectedItem is Nyersanyagok selectedNyersanyag)
             {
-                _context.Receptek.Remove(törlendõ);
+                _context.Nyersanyagok.Remove(selectedNyersanyag);
                 _context.SaveChanges();
-                HozzávalóListázás();
+                NyersanyagListazas();
             }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 
