@@ -6,5 +6,44 @@
 </head>
 <body>
     Hello World 😝
+    <div>
+        <div id="jokeList"></div>
+        <div>
+            <input id="jokeText" type="text" placeholder="Csak PC vicc" />
+        </div>
+        <button id="addButton">Új vicc felvétele</button>
+    </div>
+    <script>
+        document.getElementById("addButton").addEventListener("click", () => {
+            let data = {
+                jokeText: document.getElementById("jokeText").value
+            }
+
+
+            fetch("api/vicci/",
+                {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                }
+            ).then();
+
+        });
+
+
+
+        const jokeList = document.getElementById('jokeList');
+        const jokeText = document.getElementById('jokeText');
+        const addButton = document.getElementById('addButton');
+
+
+        addButton.addEventListener('click', () => {
+            const joke = jokeText.value;
+            jokeList.innerHTML += `<div>${joke}</div>`;
+            jokeText.value = '';
+        });
+    </script>
 </body>
 </html>
